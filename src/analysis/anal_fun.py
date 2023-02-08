@@ -28,7 +28,7 @@ h_line = text.rjust(100,'-')
 
 # path_result = "./../../result/results_Network.xlsm"
 path_result = './result/results_Network.xlsm'
-path_test = "C:/Users/thoug/OneDrive/WS2022/ENS_Panda/Feb/result/results_Network.xlsm"
+# path_result = "C:/Users/thoug/OneDrive/WS2022/ENS_Panda/Feb/result/results_Network.xlsm"
 
 
 #%%
@@ -453,11 +453,11 @@ class pd_ts_Analysis(pd_Analysis):
                     
                     index_d.append(j)
                     index_d_value.append(info_here_line[j])
-                    index_d_extra = pd.DataFrame.from_records(data=index_d_value, columns=['Time Step', 'Line Index','Scenario', 'Loading Percent[%]'])
+                    index_d_extra = pd.DataFrame.from_records(data=index_d_value, columns=['Time Step', 'Line Index','Scenario', 'Line Loading Percent[%]'])
                     
                 if all(j < line_over for j in info_here_series) == True:
                     
-                    index_d_value = {'Time Step':['---'],'Line Index':['---'], 'Scenario':['---'], 'Loading Percentage[%]':['---']}  
+                    index_d_value = {'Time Step':['---'],'Line Index':['---'], 'Scenario':['---'], 'Line Loading Percentage[%]':['---']}  
                     index_d_extra = pd.DataFrame(index_d_value)
                     
             time.sleep(1)
@@ -483,21 +483,21 @@ class pd_ts_Analysis(pd_Analysis):
                         
                         index_c.append(j)
                         index_c_value.append(info_here[j])
-                        index_c_extra = pd.DataFrame.from_records(data=index_c_value, columns=['Time Step', 'Trafo Index','Scenario', 'Loading Percent[%]'])
+                        index_c_extra = pd.DataFrame.from_records(data=index_c_value, columns=['Time Step', 'Trafo Index','Scenario', 'Transformer Loading Percent[%]'])
                         
                     if all(j < trafo_over for j in info_here_series) == True:
                         
-                        index_c_value = {'Time Step':['---'],'Trafo Index':['---'], 'Scenario':['---'],  'Loading Percentage[%]':['---']}  
+                        index_c_value = {'Time Step':['---'],'Trafo Index':['---'], 'Scenario':['---'],  'Transformer Loading Percentage[%]':['---']}  
                         index_c_extra = pd.DataFrame(index_c_value)
                         
                 else:   # incase only one transformer exist
                     if info_here[0][3] >= trafo_over:
                         
-                        index_c_extra = pd.DataFrame(data=info_here, columns=['Time Step', 'Trafo Index', 'Scenario', 'Loading Percent[%]'] )
+                        index_c_extra = pd.DataFrame(data=info_here, columns=['Time Step', 'Trafo Index', 'Scenario', 'Transformer Loading Percent[%]'] )
                         
                     elif info_here[0][3] < trafo_over:
                         
-                        index_c_value = {'Time Step':['---'],'Trafo Index':['---'], 'Scenario':['---'], 'Loading Percentage[%]':['---']}  
+                        index_c_value = {'Time Step':['---'],'Trafo Index':['---'], 'Scenario':['---'], 'Transformer Loading Percentage[%]':['---']}  
                         index_c_extra = pd.DataFrame(index_c_value)
                     
             time.sleep(1)            
